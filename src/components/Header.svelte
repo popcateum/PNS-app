@@ -1,5 +1,5 @@
 <script>
-  import Button from './Button.svelte'
+  import Button from './ConnectBtn.svelte'
 </script>
 
 <div class="appBar">

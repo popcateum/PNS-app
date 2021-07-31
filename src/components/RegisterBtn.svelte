@@ -1,19 +1,21 @@
 <script>
   let able = true
+
+  function register() {
+    console.log('register');
+  }
 </script>
 
 {#if able}
-  <div class="ableBtn">
+  <div class="ableBtn" on:click={register}>
     <div class="text">
-      <b>Enroll</b>
+      <b>Register</b>
     </div>
   </div>
-
-  <div class="logout">Log out</div>
 {:else}
   <div class="disableBtn">
     <div class="text">
-      <b>Enroll</b>
+      <b>Register</b>
     </div>
   </div>
 {/if}
@@ -29,7 +31,7 @@
     border-radius: 10px;
     cursor: pointer;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
     text-align: center;
   }
   .ableBtn:active {
@@ -51,11 +53,5 @@
 
   .text {
     margin: 14px;
-  }
-
-  .logout {
-    font-size: small;
-    color: $guide-color;
-    margin-bottom: 70px;
   }
 </style>

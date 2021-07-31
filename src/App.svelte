@@ -1,15 +1,15 @@
 <script>
   import Header from './components/Header.svelte'
   import Notice from './components/Notice.svelte'
-  import Enroll from './components/Enroll.svelte'
-  import Button from './components/EnrollBtn.svelte'
+  import RegisterForm from './components/RegisterForm.svelte'
+  import RegisterBtn from './components/RegisterBtn.svelte'
 </script>
 
 <Header />
 <div class="container">
   <Notice />
-  <Enroll />
-  <Button />
+  <RegisterForm />
+  <RegisterBtn />
 </div>
 
 <style lang="scss">

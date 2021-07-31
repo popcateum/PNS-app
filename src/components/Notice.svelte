@@ -5,7 +5,7 @@
 
 <div class="box">
   <div class="middleTitle">
-    <b>PNS: Popcateum Nicname Service</b>
+    <b>PNS: Popcateum Nickname Service</b>
   </div>
   <div class="text">
     You can enroll your nickname on your account using Popcateum Nickname

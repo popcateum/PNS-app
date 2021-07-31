@@ -4,20 +4,20 @@
   let myInfo = [
     {
       isType: false,
-      title: 'My Account',
+      title: 'My account',
       defaultText: 'Please connect your wallet',
       value: null
     },
     {
       isType: false,
-      title: 'My PNS',
-      defaultText: 'No Nickname. Please enroll your PNS',
+      title: 'My nickname',
+      defaultText: 'Please register your nickname',
       value: null
     },
     {
       isType: true,
-      title: 'Type your PNS',
-      defaultText: 'Please type your PNS',
+      title: 'Type your nickname',
+      defaultText: 'Please type your nickname',
       value: null
     },
   ]
@@ -25,7 +25,7 @@
 
 <div class="box">
   <div class="middleTitle">
-    <b>Enroll PNS</b>
+    <b>Register PNS</b>
   </div>
   {#each myInfo as item}
     <Info isType={item.isType} title={item.title} defaultText={item.defaultText} value={item.value} />

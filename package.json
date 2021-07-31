@@ -21,6 +21,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.35",
     "@fortawesome/free-solid-svg-icons": "5.15.3",
+    "ethers": "5.4.3",
     "fontawesome-svelte": "2.0.1",
     "node-sass": "6.0.1",
     "sass": "1.36.0",
