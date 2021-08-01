@@ -1,7 +1,7 @@
 {
   "homepage": "https://pns.popcateum.org",
   "name": "pns-svelte",
-  "version": "1.0.0",
+  "version": "v0.1.6",
   "private": true,
   "scripts": {
     "build": "rollup -c",

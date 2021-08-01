@@ -10,6 +10,7 @@
   } from '../store'
 
   import PNSabi from '../data/abi/PNS.json'
+  import {version} from '../../package.json'
 
   async function setNickname() {
     const contract = await new ethers.Contract(
@@ -34,11 +35,17 @@
       <b>Register</b>
     </div>
   </div>
+  <div>
+    {version}
+  </div>
 {:else}
   <div class="disableBtn">
     <div class="text">
       <b>Register</b>
     </div>
+  </div>
+  <div>
+    {version}
   </div>
 {/if}
 
@@ -74,5 +81,10 @@
 
   .text {
     margin: 14px;
+  }
+
+  .version {
+    font-size: small;
+    color: $guide-color;
   }
 </style>

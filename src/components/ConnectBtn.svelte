@@ -18,6 +18,17 @@
     getInfo()
   }
 
+  function changed() {
+    ethereum.on('accountsChanged', async () => {
+      await getAddress()
+      await getNickname()
+    })
+
+    ethereum.on('chainChanged', async () => {
+      await switchEthereumChain()
+    })
+  }
+
   async function requestAccount() {
     await ethereum.request({ method: 'eth_requestAccounts' })
     $isConnect = true
@@ -47,7 +58,7 @@
       method: 'wallet_switchEthereumChain',
       params: [
         {
-          chainId: '0x4bd'
+          chainId: '0x4bd',
         },
       ],
     })
@@ -55,8 +66,8 @@
 
   async function connect() {
     await addEthereumChain()
-    await switchEthereumChain()
     requestAccount()
+    changed()
   }
 
   async function getInfo() {
@@ -80,13 +91,6 @@
     myNick = await contract.nickname($myFullAddress)
     $myNickname = myNick
   }
-
-  window.ethereum.on('accountsChanged', () => {
-    requestAccount()
-  });
-
-  ethereum.on('chainChanged', (_chainId) => window.location.reload());
-
 </script>
 
 {#if $myNickname === ''}
