@@ -80,6 +80,15 @@
     myNick = await contract.nickname($myFullAddress)
     $myNickname = myNick
   }
+
+  window.ethereum.on('accountsChanged', () => {
+    getInfo()
+  });
+
+  ethereum.on('chainChanged', () => {
+    connect()
+  });
+
 </script>
 
 {#if $myNickname === ''}
