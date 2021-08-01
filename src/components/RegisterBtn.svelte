@@ -1,12 +1,34 @@
 <script>
-  let able = true
+  import { ethers } from 'ethers'
+  import {
+    contractAddress,
+    inputNickname,
+    isConnect,
+    myFullAddress,
+    myNickname,
+    signer,
+  } from '../store'
 
-  function register() {
-    console.log('register');
+  import PNSabi from '../data/abi/PNS.json'
+
+  async function setNickname() {
+    const contract = await new ethers.Contract(
+      $contractAddress,
+      PNSabi,
+      $signer
+    )
+    const transaction = await contract.set($myFullAddress, $inputNickname)
+    await transaction.wait()
+    $myNickname = await contract.nickname($myFullAddress)
+    $inputNickname = null
+  }
+
+  async function register() {
+    await setNickname()
   }
 </script>
 
-{#if able}
+{#if $isConnect && $inputNickname !== null && $inputNickname !== ''}
   <div class="ableBtn" on:click={register}>
     <div class="text">
       <b>Register</b>
@@ -45,7 +67,6 @@
     font-size: 20px;
     color: white;
     border-radius: 10px;
-    cursor: pointer;
     margin-top: 20px;
     margin-bottom: 100px;
     text-align: center;

@@ -1,22 +1,54 @@
 <script>
   import { ethers } from 'ethers'
-  import { myNickname } from '../store'
+  import { myAddress, myNickname, provider, signer, isConnect, contractAddress, myFullAddress } from '../store'
 
-  let isConnect = false
+  import PNSabi from '../data/abi/PNS.json'
+
+  let myAdr
+  let myNick
+
+  $: if ($isConnect === true) {
+    getInfo()
+  }
 
   async function requestAccount() {
     await window.ethereum.request({ method: 'eth_requestAccounts' })
+    $isConnect = true
   }
 
   async function connect() {
     requestAccount()
   }
+
+  async function getInfo() {
+    $provider = new ethers.providers.Web3Provider(window.ethereum)
+    $signer = $provider.getSigner()
+    await getAddress()
+    await getNickname()
+  }
+
+  async function getAddress() {
+    $myFullAddress = await $signer.getAddress()
+    $myAddress = $myFullAddress.slice(0,6) + '...' + $myFullAddress.slice(38)
+  }
+
+  async function getNickname() {
+    const contract = await new ethers.Contract($contractAddress, PNSabi, $signer)
+    myNick = await contract.nickname($myFullAddress)
+    $myNickname = myNick
+  }
 </script>
 
-{#if isConnect}
-  <div class="btn">
+{#if $myNickname === ''}
+  <div class="nickname">
     <div class="text">
-      <b>{myNickname}</b>
+      <b>No Nickname</b>
+    </div>
+  </div>
+{:else if $isConnect && $myNickname !== null}
+  <div class="nickname">
+    <div class="text">
+      <b>{$myNickname}</b>
     </div>
   </div>
 {:else}
@@ -29,7 +61,7 @@
 
 <style lang="scss">
   @import '../styles/Color.scss';
-  
+
   .btn {
     width: 180px;
     background-color: $main-color;
@@ -41,6 +73,15 @@
   }
   .btn:active {
     opacity: 0.8;
+  }
+
+  .nickname {
+    width: 180px;
+    background-color: $main-color;
+    font-size: medium;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
   }
 
   .text {

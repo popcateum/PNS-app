@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "hardhat-abi-exporter": "2.2.1",
     "rollup": "^2.3.4",
@@ -22,6 +23,10 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.35",
     "@fortawesome/free-solid-svg-icons": "5.15.3",
+    "@nomiclabs/hardhat-ethers": "2.0.2",
+    "@nomiclabs/hardhat-waffle": "2.0.1",
+    "chai": "4.3.4",
+    "ethereum-waffle": "3.4.0",
     "ethers": "5.4.3",
     "fontawesome-svelte": "2.0.1",
     "hardhat": "2.5.0",

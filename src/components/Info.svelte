@@ -2,6 +2,7 @@
   import { library } from '@fortawesome/fontawesome-svg-core'
   import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
   import { FontAwesomeIcon } from 'fontawesome-svelte'
+import { inputNickname } from '../store';
   library.add(faCheckCircle)
 
   export let title
@@ -18,7 +19,7 @@
     <b>{title}</b>
   </div>
   {#if isType}
-    <input type="text" {value} placeholder={defaultText} />
+    <input type="text" bind:value={$inputNickname} placeholder={defaultText} />
   {:else if value}
     <div class="infoContent">
       <div class="data">{value}</div>

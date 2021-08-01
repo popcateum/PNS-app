@@ -1,3 +1,4 @@
+require('@nomiclabs/hardhat-waffle')
 require('hardhat-abi-exporter')
 const key = require('./key.json')
 
