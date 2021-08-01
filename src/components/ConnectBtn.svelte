@@ -82,7 +82,7 @@
   }
 
   window.ethereum.on('accountsChanged', () => {
-    getInfo()
+    requestAccount()
   });
 
   ethereum.on('chainChanged', (_chainId) => window.location.reload());
