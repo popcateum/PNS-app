@@ -2,7 +2,7 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/elixir/dev/popcateum/PNS-svelte/contracts/interfaces/IPNS.sol": {
-      "lastModificationDate": 1627752666989,
+      "lastModificationDate": 1627810508215,
       "contentHash": "0979202e5916531a0456534a5dd00a95",
       "sourceName": "contracts/interfaces/IPNS.sol",
       "solcConfig": {
@@ -36,7 +36,7 @@
       ]
     },
     "/Users/elixir/dev/popcateum/PNS-svelte/contracts/PNS.sol": {
-      "lastModificationDate": 1627752666987,
+      "lastModificationDate": 1627810508215,
       "contentHash": "ddc8522d9dffd14752e8f37d6fa210d0",
       "sourceName": "contracts/PNS.sol",
       "solcConfig": {

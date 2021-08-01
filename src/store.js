@@ -9,4 +9,4 @@ export const provider = writable(null)
 export const signer = writable(null)
 export const myFullAddress = writable(null)
 
-export const contractAddress = readable('0x14F180926973Ef08aBC35c9eA41FDE52d47814a1')
+export const contractAddress = readable('0x1149dBA023cEe0d895Ad19060D91bfe28954dEBd')
