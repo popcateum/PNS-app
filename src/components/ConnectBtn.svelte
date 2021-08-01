@@ -85,9 +85,7 @@
     getInfo()
   });
 
-  ethereum.on('chainChanged', () => {
-    connect()
-  });
+  ethereum.on('chainChanged', (_chainId) => window.location.reload());
 
 </script>
 
