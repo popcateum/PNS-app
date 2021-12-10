@@ -1,6 +1,6 @@
 require('@nomiclabs/hardhat-waffle')
 require('hardhat-abi-exporter')
-const key = require('./key.json')
+require('dotenv').config()
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -13,8 +13,8 @@ module.exports = {
   },
   networks: {
     popcateum: {
-      url: 'http://34.122.106.50:9506',
-      accounts: [key.myKey],
+      url: 'https://dataseed.popcateum.org',
+      accounts: [process.env.PK || ''],
     },
   },
   abiExporter: {
